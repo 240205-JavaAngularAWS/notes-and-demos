@@ -12,7 +12,7 @@ Using Spring Boot, create a simple API for creating To-Do lists via HTTP Request
 
 - All interactions between a User and the API should happen via HTTP Requests. Using a tool like Postman will allow you to set up these requests.
 
-- All data should be stored in a SQL Database, using an in-memory H2 database will be the easiest was to tackle this problem. You To-Do class should have fields marked for at least the following: ID, To-Do text, and a boolean marking if it's completed or not. Make sure the class is properly encapsulated by marking instance fields as private and creating getters and setters.
+- All data should be stored in a SQL Database, using an in-memory H2 database will be the easiest was to tackle this problem. Your To-Do class should have fields for at least the following: ID, To-Do text, and a boolean marking if it's completed or not. Make sure the class is properly encapsulated by marking instance fields as private and creating getters and setters.
 
 - You'll be expected to complete 4 of the following User Stories as a **MINIMUM**. The more stories implemented the better, but make sure you have at least 4 of the following:
 
@@ -28,17 +28,18 @@ Using Spring Boot, create a simple API for creating To-Do lists via HTTP Request
     - As a user, I can filter my To-Dos by topics (HINT: This should use Query Params on a previously created handler for viewing To-Dos and would require an additional field on the ToDo Class)
 
 - Other Optional Requirements include the following:
-    - Giving accounts roles (USER and ADMIN) so Admins can view everyone's To-Dos while a user can only view their own
+    - Giving accounts roles (USER and ADMIN) so Admins can view everyone's To-Dos while a User can only view their own
     - Using JUnit to test Service Layer methods (70% coverage at least would be optimal)
     - Switching the H2 Database for the SQL Server database we created on 2/5/2024
 
-- **NOTE** Responses from the API must include proper response bodies (in JSON) and **status codes** (i.e. If I try to go to http://localhost:8080/To-Do/5 and there is no resource there, I should receive a 404 status code in the response)
+- **NOTE** Responses from the API must include proper response bodies (in JSON) and **status codes** (i.e. If I try to go to http://localhost:8080/To-Do/5 and there is no resource there, I should receive a 404 status code (NOT FOUND) in the response, but if the resource is there I should receive a 200 status code (OK) instead)
 
 ## Presentation
 - Use Postman to showcase how your application handles HTTP requests and responses (A Collection on Postman is useful for presenting prewritten HTTP requests)
 - Clear, concise, and professional communication during the project presentation
 - Ability to communicate clear answers to fully address questions asked about the project
 - Logical flow to the project presentation
+- Approx. 5 Minutes in length
 
 # Frequently Asked Questions
 1. When is the project due? 
