@@ -1,9 +1,9 @@
 package com.revature.reflection;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.*;
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class ClassInspector {
@@ -52,4 +52,40 @@ public class ClassInspector {
 
 
     // Todo create method that gets us all the public methods from a class
+    public static void listPublicMethods(Class<?> clazz){
+        System.out.println("Printing the public methods of the class " + clazz.getName());
+
+        Method[] methods = clazz.getMethods();
+
+        for (Method method: methods){
+
+            // Let's skip any object class methods
+            if (method.getDeclaringClass() == Object.class){
+                continue;
+            }
+
+
+            System.out.println("\t Method Name: " + method.getName());
+            System.out.println("\t Method Param Count: " + method.getParameterCount());
+            System.out.println("\t Method Declaring Class: " + method.getDeclaringClass());
+
+            // Let's also print out the parameters for the method itself
+            Parameter[] parameters = method.getParameters();
+
+            for (Parameter parameter: parameters){
+                System.out.println("\t\t Parameter Name: " + parameter.getName());
+                System.out.println("\t\t Parameter Type: " + parameter.getType());
+            }
+
+            // A lot of frameworks these days search for annotation based configuration
+            Annotation[] annotations = method.getDeclaredAnnotations();
+            for (Annotation annotation: annotations){
+                System.out.println("\t\t Annotation Name: " + annotation.toString());
+
+            }
+
+            System.out.println();
+
+        }
+    }
 }

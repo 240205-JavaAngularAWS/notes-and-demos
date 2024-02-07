@@ -35,6 +35,7 @@ public class DummyUser {
         return id;
     }
 
+    @SampleAnnotation
     public void setId(int id) {
         this.id = id;
     }
@@ -56,6 +57,7 @@ public class DummyUser {
     }
 
     @Override
+    @SampleAnnotation
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

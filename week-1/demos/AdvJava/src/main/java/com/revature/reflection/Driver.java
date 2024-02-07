@@ -6,5 +6,7 @@ public class Driver {
         ClassInspector.listPublicConstructors(DummyUser.class);
 
         ClassInspector.listNonPublicFields(DummyUser.class);
+
+        ClassInspector.listPublicMethods(DummyUser.class);
     }
 }
