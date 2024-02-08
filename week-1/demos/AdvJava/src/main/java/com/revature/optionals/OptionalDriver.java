@@ -1,8 +1,21 @@
 package com.revature.optionals;
 
+import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Optional;
 
 public class OptionalDriver {
+
+    /*
+    If I want to add logging to a class I'll need to add the logger in as a private static final instance
+    Then I can log messages with logger.(logging level)
+    Ex: An INFO level log will be logger.info("message")
+
+     */
+
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(OptionalDriver.class);
+
 
     /*
     Optionals is a class that was introduced in Java 8 to give more flexibility for working with objects that may
@@ -22,10 +35,10 @@ public class OptionalDriver {
         // Imagine we're getting sample1 and sample2 from a database based off some id or identifier of some sort.
         // There's no guarantee a value will be returned so it'll be useful to make an Optional of the result
 
-        Optional<String> possibleStringFromDatabase = Optional.ofNullable(sample2);
+        Optional<String> possibleStringFromDatabase = Optional.ofNullable(sample1);
 
         // Now we can do some checking to see if the value is actually there
-        System.out.println(possibleStringFromDatabase.isPresent());
+        logger.debug(String.valueOf(possibleStringFromDatabase.isPresent()));
         // isPresent returns a boolean (true if the value exists and false if the value is null)
 
         // Other methods that are useful
