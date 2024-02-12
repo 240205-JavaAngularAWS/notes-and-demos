@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to CSS</title>
+    <!-- CSS (Cascading Style Sheets) is used to stylize the page and make it far more visually appealing.
+        Sometimes CSS can be a pain to deal with, especially if you have overlapping styles so in the long run I recommend using some sort of CSS library or tool
+        Ex: Bootstrap, Skeleton, etc.
+    
+        There are 3 different kinds of CSS styling: inline, internal and external and they all have different priorities.
+        The easiest way to remember what has priority is "distance" to the element itself
+        Inline is the closest being an attribute on the html element
+        Internal is stored in a style tag in the head of the html document (this is the second "closest" to the code)
+        External (the "farthest" away) is stored in an external file (most common since separate concerns)-->
+
+    <style>
+         /* This is a CSS comment since everything in this block should be CSS and NOT HTML
+
+         There are different selectors we can use in CSS to select which elements we're looking to style
+          */
+
+          /* Tag Selector -> Used to select all elements with the following tag*/
+          p {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+
+          /* Id Selector -> Used to grab a unique element from the document*/
+          #my-special-div{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: 2px aqua solid;
+            color: blueviolet;
+            background-color: burlywood;
+          }
+
+          /* Class Selector -> Used to style similar elements that are marked with a class */
+          .my-special-class{
+            border: dashed;
+            background-color: aquamarine;
+            padding: 50px; /*This will apply 50px padding on each side */
+            margin: 20px; /*This will apply a 20px margin around the border that no other element should be in */
+          }
+
+          /* There are more like child selectors, sibling selectors and descendent selectors but we won't worry too much about them for now */
+        
+    </style>
+
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <div id="inline-styling-example">
+        <h4>CSS rules are defined by key/value pairs, separated by a colon { : }</h4>
+        <p style="color:goldenrod; background-color: black;">This is an example of some inline styling</p>
+        <!-- The black goes across the entire page because the p tag is known as a block element, meaning it takes up all the width of its container, an inline element like span 
+            will only take up exactly as much space as it needs to -->
+
+        <span style="background-color: aqua;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, quia. Quod vero facilis cupiditate veritatis libero ipsum, iure assumenda debitis sed dolore distinctio temporibus deleniti ea ducimus quas asperiores in!</span>
+    </div>
+
+    <div id="internal-styling-example">
+
+        <h2>Selectors</h2>
+        <h3>Elements, Classes &amp; Id's</h3>
+
+        <div id="my-special-div">
+            <p>Here's a bunch of text identifies by id <code>my-special-div</code></p>
+            <p>Some more text here</p>
+        </div>
+
+        <div class="my-special-class">
+            <p> This belongs to a class labeled as <code>my-special-class</code></p>
+        </div>
+
+        <div class="my-special-class">
+            <p> This also belongs to a class labeled as <code>my-special-class</code></p>
+        </div>
+
+    </div>
+    
+</body>
+</html>
