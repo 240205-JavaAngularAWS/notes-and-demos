@@ -29,9 +29,7 @@ Technology framework requirements:
 - Java API will leverage the Spring Framework 
 - Java API will use Spring Data JPA to communicate with the DB
 - Java API will be RESTful (though HttpSession will be permitted)
-- Java API will be unit tested using JUnit and Mockito, with coverage reports generated using Jacoco 
-    - Java API will have >=70% test (line) coverage for service/validation layer classes (confirmed by Jacoco coverage report)
-    - Java API will leverage Spring's MockMvc for integration/e2e tests of controller endpoints
+
 
 Other requirements: 
 - Application will demonstrate at least ten individual user stories 
