@@ -5,6 +5,7 @@ import com.revature.models.IceCream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -118,6 +119,15 @@ public class IceCreamService {
 
         // Save the resulting ice cream record
         return icd.save(returnedIceCream);
+    }
+
+
+    public List<IceCream> getAllIceCream(){
+        return icd.findAll();
+    }
+
+    public List<IceCream> getAllIceCreamByDairyFree(boolean isDairyFree){
+        return icd.findAllByIsDairyFree(isDairyFree);
     }
 
 }

@@ -7,11 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController // RestController is a combo of two annotations: Controller and ResponseBody
 @RequestMapping("/icecream") // -> Denotes the path to access this controller to be http://localhost:8080/icecream
-@CrossOrigin(origins = {"http://127.0.0.1:5500"})
 public class IceCreamController {
     /*
     The Controller layer is specifically responsible for controller HTTP Traffic, so it receives the HTTP requests,
@@ -79,6 +79,17 @@ public class IceCreamController {
 
         // If the record was successfully found we can return the record with 200 response
         return new ResponseEntity<>(returnedIceCream, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public List<IceCream> getAllIceCream(@RequestParam(name = "dairy_free", required = false) String dairyFree){
+        if (dairyFree != null && dairyFree.equalsIgnoreCase("true")){
+            return ics.getAllIceCreamByDairyFree(true);
+        }else if (dairyFree != null && dairyFree.equalsIgnoreCase("false")) {
+            return ics.getAllIceCreamByDairyFree(false);
+        } else{
+            return ics.getAllIceCream();
+        }
     }
 
 
