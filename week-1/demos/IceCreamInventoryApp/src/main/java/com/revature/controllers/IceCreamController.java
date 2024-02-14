@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 
 @RestController // RestController is a combo of two annotations: Controller and ResponseBody
 @RequestMapping("/icecream") // -> Denotes the path to access this controller to be http://localhost:8080/icecream
+@CrossOrigin(origins = {"http://127.0.0.1:5500"})
 public class IceCreamController {
     /*
     The Controller layer is specifically responsible for controller HTTP Traffic, so it receives the HTTP requests,

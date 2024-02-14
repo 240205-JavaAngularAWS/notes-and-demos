@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter a New Flavor!</title>
+</head>
+<body>
+    <!-- We'd essentially use this page to take in some information from a user and do something with it 
+        We can use a form tag to group all of our input tags together if we want, but wew don't need to do that if we don't want-->
+
+        <h1>Enter a new Ice Cream Flavor!</h1>
+
+
+        <!-- We'll use a label to label the input element itself -->
+        <label for="flavor-input">Enter Flavor: </label>
+        <!-- Input is used for taking user input -->
+        <input id="flavor-input" type="text" name="flavor-input">
+
+        <!-- We'll do a drop down for is dairy free -->
+        <label for="dairy-free">Dairy Free: </label>
+
+        <select name="dairy-free" id="dairy-free-input" onchange="changeFunction(event)">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <button id="new-flavor-button">Enter New Flavor!</button>
+
+    <script src="events.js"></script>
+</body>
+</html>
