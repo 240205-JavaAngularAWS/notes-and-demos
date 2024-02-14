@@ -130,12 +130,12 @@ let promise = new Promise(function (resolve, reject){
 // We can chain this promise with different consumer functions
 promise
     .then((x) => x * 2) // New value of the promise is 5*2 = 10
-    .then((z) => console.log(z))
+    .then((z) => console.log(z));
 
 promise
     .then(() => console.log("We resolved"))
     .catch(() => console.log("There was an error so we rejected"))
-    .finally(()=> console.log("This guy executes no matter what"))
+    .finally(()=> console.log("This guy executes no matter what"));
 
 // At this point we're ready to do a simple fetch request
 
@@ -144,3 +144,18 @@ promise
 // We'll attempt to send a GET Request to our backend to get the ice cream inventory info
 // We'll first create an async function that will let JS know that the web api needs to handle it
 
+
+(async () => {
+    // API calls take time and we want to let JS know that it can start this method and then come back later for the resolved response
+    
+    let data = fetch("http://localhost:8080/icecream")
+    // Just calling fetch like this implicity sends a GET request to the resource mentioned
+    // To get the response, we need to parse it into JSON
+    // Then we'll store it and call our populate function
+
+    data
+        .then((data) => data.json())
+        .then((res) => console.log(res))
+        .catch((error) => console.log("There was an error with the fetch request!"))
+
+})();

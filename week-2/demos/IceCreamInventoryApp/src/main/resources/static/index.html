@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3 Examples</title>
+    <link rel="stylesheet" href="fetch-ice-cream.css">
+</head>
+<body>
+
+    <!-- Imagine if you will a storefront menu with all of our options -->
+    <h1>Our Ice Cream Flavors!</h1>
+    <!-- We'll do a drop down for is dairy free -->
+    <label for="dairy-free">Dairy Free: </label>
+
+    <select name="dairy-free" id="dairy-free-input" onchange="checkBoxChange()">
+        <option value="all">All</option>
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+
+    <div id="IceCreamContainer">
+        <!-- Inside of here I will place all of my ice cream objects -->
+    </div>
+    
+    <script src="fetch-ice-cream.js"></script>
+</body>
+</html>
