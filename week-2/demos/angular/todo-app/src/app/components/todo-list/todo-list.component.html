@@ -39,11 +39,18 @@
     -->
 
     <!-- We'll use ngFor to actually control the components on this page so we can always render exactly the right amount of todos -->
-    <todo *ngFor="let todo of todos" [todoInputted]="todo"></todo>
+    <todo *ngFor="let todo of todos" [todoInputted]="todo" (deleteTodo)="removeTodoFromList($event)"></todo>
 
     <!-- We can also have a conditional statement affecting what's get rendered as well by using ngIf, see top of container for if statement-->
 </div>
 
 <ng-template #elseBlock>
-    <h2>No Todos in this list!</h2>
+    <h2>No To-Dos in this list!</h2>
 </ng-template>
+
+<div id="NewTodoForm" style="margin-left: auto; margin-right: auto; justify-content: center;">
+    <label for="new-todo">To-Do Text: </label>
+    <input id="new-todo" name="new-todo" type="text" placeholder="Change Me!" maxlength="50" [(ngModel)]="newTodoText">
+    <button (click)="createNewTodo()">Add To-Do!</button>
+    <p style="color: red;" [hidden]="hide">To-Do text can't be blank!</p>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ITodo } from '../../interfaces/ITodo';
 
 @Component({
@@ -27,5 +27,22 @@ export class TodoComponent {
     // Inside this function we'll do our logic to toggle the value for completed
     this.todoInputted.completed = !this.todoInputted.completed
     console.log(`${this.todoInputted.text} was marked with completed=${this.todoInputted.completed}`)
+  }
+
+
+  // Let's create an event emitter
+  @Output() deleteTodo = new EventEmitter();
+  // NOTE: the name of the emitter will be the event the parent needs to listen for
+
+  removeTodo(){
+    // We want to assign this to a click event on the "delete Todo" button and use it to delete the todo
+    // Current Problem: The todos are stored in the todo-list component (parent component)
+    // and we have no way to tell them to remove this todo
+
+    // Solution: Create an event emitter
+    // An event emitter allows us to output an event from a child component that can be listened for by a parent component
+    console.log(`Attempting to remove todo with id: ${this.todoInputted.id}`)
+    // We'll need to emit an event and we can pass info from the child to the parent with the event object
+    this.deleteTodo.emit(this.todoInputted);
   }
 }

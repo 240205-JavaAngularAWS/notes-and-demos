@@ -1,7 +1,13 @@
 <div class="todo">
-    <p (click)="toggleCompleted()">{{todoInputted.text}}</p>
-    <p>Completed: {{todoInputted.completed}}</p>
-    <button>Delete Todo</button>
+    <p [ngClass]="todoInputted.completed ? 'completed' : 'not-completed'" (click)="toggleCompleted()">{{todoInputted.text}}</p>
+    <!-- <p>Completed: {{todoInputted.completed}}</p> -->
+    <!-- <button (click)="removeTodo()">Delete Todo</button> -->
+    <!-- Completely uneccesary but I thought be funny -->
+    <img src="https://freepngtransparent.com/wp-content/uploads/2023/03/X-Png-166.png" style="width: 60px;" (click)="removeTodo()">
+
     <!-- If we want to bind an event to these pieces I'll create the function on component's TS file and bind it using () -->
     <!-- I want to make it so that when we click on the text for the todo it will mark it completed and will cross off the text -->
+
+    <!-- We want to update the todo text to be crossed out if the todo is marked as completed -->
+    <!-- I'll use the attribute directive ngClass to control what css class is affecting the element based off some condition -->
 </div>
