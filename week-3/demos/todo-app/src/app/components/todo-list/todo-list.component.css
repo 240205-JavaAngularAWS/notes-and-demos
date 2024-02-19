@@ -1,0 +1,53 @@
+.todo-container {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.todo {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(25% - 20px); /* Adjust based on the number of todos you want per row */
+    margin-bottom: 20px;
+    background-color: #f5f5f5; /* Light gray, change as desired */
+}
+
+.new-todo-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.new-todo-form label {
+    margin-right: 10px;
+}
+
+.new-todo-form input {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.new-todo-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue color, change as desired */
+    color: white;
+    cursor: pointer;
+}
+
+.new-todo-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover, change as desired */
+}
+
+.error-message {
+    color: red;
+    margin-left: 10px;
+}

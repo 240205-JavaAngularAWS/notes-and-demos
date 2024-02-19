@@ -1,0 +1,18 @@
+<!-- For this component let's build a simple login form here to hold all of our inputs -->
+<div id="LoginForm">
+
+    <label for="username">Username: </label>
+    <input id="username" name="username" type="text" [(ngModel)]="usernameInput">
+
+    <br>
+
+    <label for="password">Password: </label>
+    <input id="password" name="password" type="password" [(ngModel)]="passwordInput">
+
+    <br>
+
+    <button id="loginButton" (click)="loginUser()">Login!</button>
+
+    <p id="errorMessage" style="color: red;" [hidden]="errorMessageHidden">Username or password incorrect!</p>
+
+</div>

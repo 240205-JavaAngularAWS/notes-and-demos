@@ -1,0 +1,58 @@
+<h1>{{this.listName}}</h1>
+
+<!-- Inside of here will be the entirity of my todo-list container's html so all of this will be rendered every time a <todo-list> component is called -->
+<div id="TodoContainer" *ngIf="todos.length > 0; else elseBlock" class="todo-container">
+    <!-- Inside of here is where all of my Todos will be located -->
+    <!-- Let's create some todos to work with -->
+    <!-- <div class="todo">
+        <p>{{todos[0].text}}</p>
+        <p>Completed: {{todos[0].completed}}</p>
+        <button>Delete Todo</button>
+    </div>
+
+    <div class="todo">
+        <p>{{todos[1].text}}</p>
+        <p>Completed: {{todos[1].completed}}</p>
+        <button>Delete Todo</button>
+    </div>
+
+    <div class="todo">
+        <p>{{todos[2].text}}</p>
+        <p>Completed: {{todos[2].completed}}</p>
+        <button>Delete Todo</button>
+    </div> -->
+
+    <!-- Bryan you told use components are reusable block that we can use over and over again, but why aren't we doing that here?
+        Answer: we're doing it now -->
+    
+    <!-- <todo [todoInputted]="todos[0]"></todo>
+    <todo [todoInputted]="todos[1]"></todo>
+    <todo [todoInputted]="todos[2]"></todo> -->
+    <!-- What did we do here? We used PROPERTY BINDING to bind the value of todos[0] to the "todoInputted" property we defined in the todo component -->
+
+    <!-- Directives in Angular
+    There are 2 types of directive in Angular which will be used for dynamically rendering/styling components
+    Structural Directives (Control what components are on the page)
+        ngFor (Allows us to render elements a specific number of times)
+        ngIf (allows us to conditonally render elements (like an if-else statement))
+    Attribute Directives (Control How those components look)
+        ngClass (allows us to apply CSS classes based off an expression)
+        ngStyle
+    -->
+
+    <!-- We'll use ngFor to actually control the components on this page so we can always render exactly the right amount of todos -->
+    <todo *ngFor="let todo of todos" [todoInputted]="todo" (deleteTodo)="removeTodoFromList($event)"></todo>
+
+    <!-- We can also have a conditional statement affecting what's get rendered as well by using ngIf, see top of container for if statement-->
+</div>
+
+<ng-template #elseBlock>
+    <h2>No To-Dos in this list!</h2>
+</ng-template>
+
+<div id="NewTodoForm" class="new-todo-form">
+    <label for="new-todo">To-Do Text: </label>
+    <input id="new-todo" name="new-todo" type="text" placeholder="Change Me!" maxlength="50" [(ngModel)]="newTodoText">
+    <button (click)="createNewTodo()">Add To-Do!</button>
+    <p class="error-message" [hidden]="hide">To-Do text can't be blank!</p>
+</div>

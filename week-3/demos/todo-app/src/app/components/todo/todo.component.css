@@ -1,0 +1,20 @@
+.todo {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    background-color: darkseagreen;
+}
+
+.not-completed{
+    text-wrap: wrap;
+}
+
+.completed{
+    text-wrap: wrap;
+    text-decoration: line-through;
+    /* This decoration does the strike through for the text items */
+}
