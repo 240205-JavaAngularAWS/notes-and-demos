@@ -26,8 +26,16 @@ export class TodoComponent {
   toggleCompleted(){
     // Inside this function we'll do our logic to toggle the value for completed
     this.todoInputted.completed = !this.todoInputted.completed
-    console.log(`${this.todoInputted.text} was marked with completed=${this.todoInputted.completed}`)
+    // console.log(`${this.todoInputted.text} was marked with completed=${this.todoInputted.completed}`)
+
+    // We want to send this guy up to the parent component when we try to update its status
+    // WHY? The parent component is the one that renders and controls the todo components that appear on the screen,
+    // so if we pass up this event, we can listen for it in the parent component, send the appropriate request and then update/refresh the list
+    this.updateTodo.emit(this.todoInputted)
   }
+
+  // Let's create a new event emitter
+  @Output() updateTodo = new EventEmitter();
 
 
   // Let's create an event emitter

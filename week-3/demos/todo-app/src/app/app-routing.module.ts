@@ -5,13 +5,17 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { authGuard } from './guards/auth.guard';
 import { listAccessGuard } from './guards/list-access.guard';
+import { Observable } from 'rxjs';
+import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
 
 const routes: Routes = [
   // Inside here is where we define the components we want to show at a specific route
   {path: 'login', component: LoginPageComponent},
   {path: 'lists', component:ListPageComponent, canActivate: [authGuard]},
-  {path: 'lists/:listId', component: TodoListComponent, canActivate:[authGuard, listAccessGuard]},
-  {path: '', pathMatch:'full', redirectTo:'login'}
+  {path: 'lists/:listId', component: TodoListComponent, canActivate:[authGuard]},
+  {path: '', pathMatch:'full', redirectTo:'login'},
+  {path: 'practice', component:ObservablePracticeComponent}
+  
 ];
 
 @NgModule({

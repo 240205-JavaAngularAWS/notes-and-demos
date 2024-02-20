@@ -1,4 +1,4 @@
 <div (click)="rerouteToTodoList()" class="list-content">
     <p class="list-title">{{this.listInputted.title}}</p>
-    <p class="list-description">Total Items: {{this.listInputted.todos.length}}</p>
+    <p class="list-description">Total Items: {{this.listInputted.todos.length | thousandpipe}}</p>
 </div>

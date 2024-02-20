@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { ListPageComponent } from './components/list-page/list-page.component';
 import { ListIconComponent } from './components/list-icon/list-icon.component';
+import { ObservablePracticeComponent } from './components/observable-practice/observable-practice.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TitlecasepipePipe } from './pipes/titlecasepipe.pipe';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { ListIconComponent } from './components/list-icon/list-icon.component';
     TodoListComponent,
     LoginPageComponent,
     ListPageComponent,
-    ListIconComponent
+    ListIconComponent,
+    ObservablePracticeComponent,
+    TitlecasepipePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

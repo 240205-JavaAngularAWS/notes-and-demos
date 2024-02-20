@@ -24,22 +24,30 @@ export class LoginPageComponent {
     // console.log(this.passwordInput)
 
     // Now that we have our auth service we want to use it in this component to attempt to login the user
-    this.authService.loginUser(this.usernameInput, this.passwordInput);
+    this.authService.loginUser(this.usernameInput, this.passwordInput).subscribe((data) => {
 
-    // Now we need to validate that the user was logged in successfully
-    let successfulLogin: boolean = this.authService.validateLoggedIn();
+        // We'll just set the user into sessionStorage here, no biggie
+        sessionStorage.setItem("username", data.username)
 
-    if(successfulLogin){
-      console.log("Successful Login!")
-      this.errorMessageHidden = true
+        // Now we need to validate that the user was logged in successfully
+        let successfulLogin: boolean = this.authService.validateLoggedIn();
 
-      // If we successfully login we should be redirected to the list page
-      this.router.navigate(['lists'])
-    } else{
-      // We'll add an error message here
-      console.log("Unable to validate credentials")
-      this.errorMessageHidden = false
-    }
+        if(successfulLogin){
+          console.log("Successful Login!")
+          this.errorMessageHidden = true
+
+          // If we successfully login we should be redirected to the list page
+          this.router.navigate(['lists'])
+        } else{
+          // We'll add an error message here
+          console.log("Unable to validate credentials")
+          this.errorMessageHidden = false
+        }
+
+
+    });
+
+    
 
   }
 

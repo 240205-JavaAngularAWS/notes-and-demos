@@ -41,7 +41,7 @@
     -->
 
     <!-- We'll use ngFor to actually control the components on this page so we can always render exactly the right amount of todos -->
-    <todo *ngFor="let todo of todos" [todoInputted]="todo" (deleteTodo)="removeTodoFromList($event)"></todo>
+    <todo *ngFor="let todo of todos" [todoInputted]="todo" (deleteTodo)="removeTodoFromList($event)" (updateTodo)="updateTodo($event)"></todo>
 
     <!-- We can also have a conditional statement affecting what's get rendered as well by using ngIf, see top of container for if statement-->
 </div>

@@ -18,7 +18,14 @@ export class ListPageComponent {
   // It might seem like we need to do this during the constructor but actually we'll use this during a method called ngOnInit()
   ngOnInit(){
     // we use the ngOnInit lifecycle method to control the initiliazation for our variables
-    this.lists = this.todoService.getListsByUser();
+    // this.lists = this.todoService.getListsByUser()
+    // ^ Doesn't work because it's not an observable result from a request
+
+    this.todoService.getListsByUser()
+    .subscribe((data) => {
+      console.log(data)
+      this.lists = data
+    });
   }
 
 }

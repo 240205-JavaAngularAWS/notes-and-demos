@@ -10,12 +10,12 @@ export const listAccessGuard: CanActivateFn = (route, state) => {
   let availableTodoLists = todoService.getListsByUser();
   let activatedListId = route.params["listId"]
 
-  for (let todoList of availableTodoLists){
-    // We'll check the id
-    if (todoList.id == activatedListId){
-      return true;
-    }
-  }
+  // for (let todoList of availableTodoLists){
+  //   // We'll check the id
+  //   if (todoList.id == activatedListId){
+  //     return true;
+  //   }
+  // }
 
   // So the id we're trying to access is NOT in the list of available ids
   // We'll reroute back to the avaiable lists
