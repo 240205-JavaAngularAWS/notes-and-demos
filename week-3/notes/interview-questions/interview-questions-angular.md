@@ -90,8 +90,7 @@
         - ngOnInit (to allow us to initialize values after the component has been constructed)
         - Look at W2D5 notes to review the other ones
     
-10.  What is a directive and what are the different types?
-
+10. What is a directive and what are the different types?
     - Used to manipulate or change elements rendered on the DOM
     - Structural Directives (Used to dynamically render components on the DOM)
         - ngFor (Render a component for each element of an iterable list)
@@ -100,7 +99,7 @@
         - ngClass (Used to add/remove CSS classes based off some conditional)
         - ngStyle (Used to add/remove CSS based off some conditional)
     
-11.  What is a pipe? A service?
+11. What is a pipe? A service?
 
     - Pipe
         - A Pipe is used for transformation of data in a component's template/html
@@ -110,17 +109,17 @@
         - Used for HTTP requests or for holding data/methods many components would want to access
         - Injected using the components constructors
     
-12.  How would you create a custom pipe? What about a service?
+12. How would you create a custom pipe? What about a service?
 
     - `ng generate pipe pipe-name`
     - `ng generate service service-name`
     
-13.  How does dependency injection work in Angular?
+13. How does dependency injection work in Angular?
 
     - Constructor Injection is used for injection of services/external tools into a component
     - Angular has a built-in Injector which creates the services as singleton instances (meaning there is only ever 1 in existence), and injects that same instance into any component that requires it
     
-15.  How have you used the HttpClient? What methods does it have and what do they return?
+15. How have you used the HttpClient? What methods does it have and what do they return?
 
     - How to get/use the HttpClient service in a component/service
         - Import the HttpClient Module in the app module
@@ -133,14 +132,14 @@
         - .delete() for a DELETE request
         - Every request implicity returns an Observable (we can specify type by using generics) which must be subscribed to to actually use the result
     
-16.  What is an Observable? What’s the difference between it and a Promise?
+16. What is an Observable? What’s the difference between it and a Promise?
 
     - Observables are used in Angular to handles async operations (http requests, events, literals)
     - Observables represent a STREAM of values whereas Promises typically represent one single value
         - With observables the subscriber functionality will be called EVERY time it receives a value/response, whereas a promise will only happen once
         - We use the .subscribe method for an observable to become an observer and take some action every time we receive information
     
-17.  What forms of data binding does Angular support? Explain the syntax for each
+17. What forms of data binding does Angular support? Explain the syntax for each
 
     - One-Way data binding (component to view)
         - String interpolation (used to pull variables/ expressions from the component and inject them as text into the view/template/html) uses {{expression}}
@@ -149,21 +148,21 @@
     - Two-Way data binding (component to view and view to component)
         - Used to essentially take in user input and do some operations with it, uses `[(ngModel)]`
 
-18.  What does Webpack do for your ng project?
+18. What does Webpack do for your ng project?
 
     - Webpack is used in the building phase of our application so it bundles all of our angular members together and generates essentially a single HTML/CSS/JS group of files to be run in the browser and contains all the info for our Angular app
     - `ng build` will do this build step and place the files in a dist folder, `ng serve --open` will build the files and render them on the web dynamically
     
-19.  How would you implement routing in your project?
+19. How would you implement routing in your project?
 
     - Routing / navigation is important in our angular app since it controls what components we see in the view at any one time
     - We can set it up by importing the AppRoutingModule in our AppModule and then defining the routes in the app-routing.module.ts file
     
-20.  What is an EventEmitter and when would you use one?
+20. What is an EventEmitter and when would you use one?
 
     - EventEmitters are used for sending custom events from a child component to a parent component so there is data flow in both directions if necessary
     - Use the `@Output` decorator when defining an event emitter and then can use Event binding on the parent component to listen for that specific event and do some operation
     
-21.  How would you run your unit tests for an Angular project?
+21. How would you run your unit tests for an Angular project?
 
     - `ng test` will open the Karma test runner which will attempt to run our tests as they are defined (using the Jasmine framework) and will create a browser-like representation of the tests suite itself and show off the test results
