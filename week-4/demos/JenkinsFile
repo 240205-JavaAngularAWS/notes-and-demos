@@ -1,0 +1,38 @@
+pipeline {
+    agent any 
+    environment {
+        DB_URL='[YOUR RDS DATABASE URL HERE]'
+        DB_NAME='todo'
+        DB_USER='TestDev'
+        DB_PASSWORD='password'
+    }
+    stages{
+        stage('Build'){
+            steps{
+                sh 'echo "Build Stage started"'
+                sh 'mvn --version'
+                
+                dir('TodoAppBackend'){
+                    sh 'git pull'
+                    sh 'mvn clean -D DB_URL=${DB_URL} -D DB_NAME=${DB_NAME} -D DB_USER=${DB_USER} -D DB_PASSWORD=${DB_PASSWORD} package'
+                }
+            }
+        }
+        stage('Test'){
+            steps{
+                sh 'echo "Test Stage started" '
+            }
+            
+        }
+        stage ('Deploy'){
+            steps{
+                sh 'echo "Deploy Stage started" '
+                dir('TodoAppBackend'){
+                    sh 'sudo docker build -t todo-app .'
+                    sh 'sudo docker run -d -p 80:8080 -e DB_URL=${DB_URL} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD} todo-app'
+                }
+            }
+            
+        }
+    }
+}
