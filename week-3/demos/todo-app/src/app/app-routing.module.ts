@@ -11,7 +11,7 @@ import { ObservablePracticeComponent } from './components/observable-practice/ob
 const routes: Routes = [
   // Inside here is where we define the components we want to show at a specific route
   {path: 'login', component: LoginPageComponent},
-  {path: 'lists', component:ListPageComponent, canActivate: [authGuard]},
+  {path: 'lists', component:ListPageComponent, canActivate: [authGuard], pathMatch:'full'},
   {path: 'lists/:listId', component: TodoListComponent, canActivate:[authGuard]},
   {path: '', pathMatch:'full', redirectTo:'login'},
   {path: 'practice', component:ObservablePracticeComponent}

@@ -57,7 +57,7 @@ export class AuthService {
     // So to use our http client for requests we have the ability to send all kinds of requests that are customizable pretty much completely
     // This guy returns an observable, so let's consider where we need to use this data. We won't need to use this in other components, since the username will be available when
     // necessary through session storage, so all the subscriber needs to do is set the session storage itself
-    return this.http.post<IUser>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/users/login`, // URL
+    return this.http.post<IUser>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/users/login`, // URL
                           JSON.stringify({username, password}), // BODY
                           headers) // Headers
                           

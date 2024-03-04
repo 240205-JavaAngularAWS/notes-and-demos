@@ -117,7 +117,7 @@ export class TodoService {
       }
 
       // Send the request 
-      return this.http.get<IList[]>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/lists`, headers)
+      return this.http.get<IList[]>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/lists`, headers)
 
       // Subscribe on the component side
   }
@@ -150,7 +150,7 @@ export class TodoService {
       }
 
       // Send the request 
-      return this.http.get<IList>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/lists/${listId}`, headers)
+      return this.http.get<IList>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/lists/${listId}`, headers)
 
       // Subscribe on the component side
   }
@@ -171,7 +171,7 @@ export class TodoService {
       })
     }
 
-    return this.http.post<ITodo>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/todos`, JSON.stringify(todo), headers)
+    return this.http.post<ITodo>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/todos`, JSON.stringify(todo), headers)
 
 
   }
@@ -186,7 +186,7 @@ export class TodoService {
       })
     }
 
-    return this.http.put<ITodo>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/todos`, JSON.stringify(todo), headers)
+    return this.http.put<ITodo>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/todos`, JSON.stringify(todo), headers)
   }
 
 
@@ -196,7 +196,7 @@ export class TodoService {
     // todo's id
   deleteTodoById(todoId: number): Observable<boolean>{
     // Here we'll send a request, we don't actually need to do much in terms of headers, we'll even try to not pass any for this one
-    return this.http.delete<boolean>(`http://ec2-52-87-214-203.compute-1.amazonaws.com/todos/${todoId}`)
+    return this.http.delete<boolean>(`http://ec2-100-25-154-58.compute-1.amazonaws.com/todos/${todoId}`)
   }
 
 
